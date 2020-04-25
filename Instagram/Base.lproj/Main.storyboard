@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TYL-T3-ajf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,6 +110,7 @@
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="YAB-gv-nz8"/>
                     <connections>
                         <outlet property="tableView" destination="y6n-jF-ROT" id="wms-N4-b50"/>
+                        <segue destination="TMS-Dw-zUk" kind="show" identifier="CommentPost" id="BIy-b3-ycg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIb-Hc-hAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -238,6 +239,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AuB-8c-Pjb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048" y="813"/>
+        </scene>
+        <!--Comment Post View Controller-->
+        <scene sceneID="RFS-pg-ptb">
+            <objects>
+                <viewController id="TMS-Dw-zUk" customClass="CommentPostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Uz-5n-MF2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-Bj-8vK">
+                                <rect key="frame" x="57" y="80" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="bI9-AV-mrt"/>
+                                    <constraint firstAttribute="height" constant="100" id="orS-Ex-19a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz7-pi-SQf">
+                                <rect key="frame" x="57" y="210" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ONd-zc-Hp8"/>
+                                </constraints>
+                                <state key="normal" title="コメントする" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="commentPost:" destination="TMS-Dw-zUk" eventType="touchUpInside" id="tnF-S1-dI6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ny7-Bj-8vK" firstAttribute="top" secondItem="vxV-6a-SMT" secondAttribute="top" constant="80" id="GkR-Yg-bE5"/>
+                            <constraint firstItem="lz7-pi-SQf" firstAttribute="top" secondItem="Ny7-Bj-8vK" secondAttribute="bottom" constant="30" id="av7-Qv-8rB"/>
+                            <constraint firstItem="lz7-pi-SQf" firstAttribute="centerX" secondItem="3Uz-5n-MF2" secondAttribute="centerX" id="mlJ-zL-xa8"/>
+                            <constraint firstItem="Ny7-Bj-8vK" firstAttribute="centerX" secondItem="3Uz-5n-MF2" secondAttribute="centerX" id="tVn-kA-w9g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vxV-6a-SMT"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jxx-PS-RYe"/>
+                    <connections>
+                        <outlet property="commentField" destination="Ny7-Bj-8vK" id="Vhd-LG-W1B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3K-MV-x8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791" y="1509"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="FY3-F1-pCU">
