@@ -12,21 +12,25 @@ import SVProgressHUD
 
 class CommentPostViewController: UIViewController {
     
+    @IBOutlet weak var commentName: UITextField!
     @IBOutlet weak var commentField: UITextField!
     
-    var commentID:String = ""
+    var postData:PostData?
     
     @IBAction func commentPost(_ sender: Any) {
         
-        //let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-        //postRef.updateData(["likes": updateValue])
+        var updateValue: FieldValue
+        
+        updateValue = FieldValue.arrayUnion([(commentName),(commentField)])
+        
+        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData!.id)
+        postRef.updateData(["comments": updateValue])
         
         // 投稿処理が完了したので先頭画面に戻る
         UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
         
         
     }
-    
     
     
     override func viewDidLoad() {

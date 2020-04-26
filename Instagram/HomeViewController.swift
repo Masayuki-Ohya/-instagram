@@ -120,17 +120,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
-
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
-        
-        self.performSegue(withIdentifier: "CommentPost", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // segueから遷移先のResultViewControllerを取得する
-        let commentPostViewController:CommentPostViewController = segue.destination as! CommentPostViewController
-        commentPostViewController.commentID = id as! String
+        let vc = self.storyboard?.instantiateViewController(identifier: "comment") as! CommentPostViewController
+        vc.postData = postData
+        self.present(vc,animated: true,completion: nil)
     }
 
 }

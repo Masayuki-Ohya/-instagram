@@ -110,7 +110,6 @@
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="YAB-gv-nz8"/>
                     <connections>
                         <outlet property="tableView" destination="y6n-jF-ROT" id="wms-N4-b50"/>
-                        <segue destination="TMS-Dw-zUk" kind="show" identifier="CommentPost" id="BIy-b3-ycg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIb-Hc-hAH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -243,43 +242,55 @@
         <!--Comment Post View Controller-->
         <scene sceneID="RFS-pg-ptb">
             <objects>
-                <viewController id="TMS-Dw-zUk" customClass="CommentPostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="comment" id="TMS-Dw-zUk" customClass="CommentPostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Uz-5n-MF2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-Bj-8vK">
-                                <rect key="frame" x="57" y="80" width="300" height="100"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="コメントを入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ny7-Bj-8vK">
+                                <rect key="frame" x="57" y="194" width="300" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="bI9-AV-mrt"/>
-                                    <constraint firstAttribute="height" constant="100" id="orS-Ex-19a"/>
+                                    <constraint firstAttribute="height" constant="100" id="cia-KG-tnn"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="nOv-Ou-nI7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz7-pi-SQf">
-                                <rect key="frame" x="57" y="210" width="300" height="40"/>
+                                <rect key="frame" x="57" y="324" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ONd-zc-Hp8"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="unM-Xr-OFS"/>
                                 </constraints>
                                 <state key="normal" title="コメントする" backgroundImage="btn"/>
                                 <connections>
                                     <action selector="commentPost:" destination="TMS-Dw-zUk" eventType="touchUpInside" id="tnF-S1-dI6"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FWk-8K-fRO">
+                                <rect key="frame" x="57" y="124" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gJ0-cb-Cjv"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hHL-LF-tCf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ny7-Bj-8vK" firstAttribute="top" secondItem="vxV-6a-SMT" secondAttribute="top" constant="80" id="GkR-Yg-bE5"/>
-                            <constraint firstItem="lz7-pi-SQf" firstAttribute="top" secondItem="Ny7-Bj-8vK" secondAttribute="bottom" constant="30" id="av7-Qv-8rB"/>
-                            <constraint firstItem="lz7-pi-SQf" firstAttribute="centerX" secondItem="3Uz-5n-MF2" secondAttribute="centerX" id="mlJ-zL-xa8"/>
-                            <constraint firstItem="Ny7-Bj-8vK" firstAttribute="centerX" secondItem="3Uz-5n-MF2" secondAttribute="centerX" id="tVn-kA-w9g"/>
+                            <constraint firstItem="FWk-8K-fRO" firstAttribute="centerX" secondItem="3Uz-5n-MF2" secondAttribute="centerX" id="Aio-eo-f5N"/>
+                            <constraint firstItem="Ny7-Bj-8vK" firstAttribute="centerX" secondItem="3Uz-5n-MF2" secondAttribute="centerX" id="KaZ-kb-kg7"/>
+                            <constraint firstItem="lz7-pi-SQf" firstAttribute="centerX" secondItem="3Uz-5n-MF2" secondAttribute="centerX" id="KiR-mC-Vxd"/>
+                            <constraint firstItem="Ny7-Bj-8vK" firstAttribute="top" secondItem="FWk-8K-fRO" secondAttribute="bottom" constant="30" id="TJP-NW-ary"/>
+                            <constraint firstItem="lz7-pi-SQf" firstAttribute="top" secondItem="Ny7-Bj-8vK" secondAttribute="bottom" constant="30" id="bc3-Sd-Ytq"/>
+                            <constraint firstItem="FWk-8K-fRO" firstAttribute="top" secondItem="vxV-6a-SMT" secondAttribute="top" constant="80" id="eQS-NI-eGg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vxV-6a-SMT"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jxx-PS-RYe"/>
                     <connections>
                         <outlet property="commentField" destination="Ny7-Bj-8vK" id="Vhd-LG-W1B"/>
+                        <outlet property="commentName" destination="FWk-8K-fRO" id="D6P-SI-wUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3K-MV-x8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

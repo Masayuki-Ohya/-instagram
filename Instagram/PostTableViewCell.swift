@@ -50,7 +50,7 @@ class PostTableViewCell: UITableViewCell {
             self.dateLabel.text = dateString
             
         // コメントの表示
-        self.commentLabel.text = "\(postData.name!) : \(postData.comments)"
+        self.commentLabel.text = "\(postData.commentsname) : \(postData.comments)"
         }
 
         // いいね数の表示
