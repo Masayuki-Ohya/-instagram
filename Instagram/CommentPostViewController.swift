@@ -21,10 +21,13 @@ class CommentPostViewController: UIViewController {
         
         var updateValue: FieldValue
         
-        updateValue = FieldValue.arrayUnion([(commentName),(commentField)])
+        updateValue = FieldValue.arrayUnion([commentName.text,commentField.text])
         
-        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData!.id)
-        postRef.updateData(["comments": updateValue])
+        let commentsnameRef = Firestore.firestore().collection(Const.PostPath).document(postData!.id)
+        commentsnameRef.updateData(["commentsName": updateValue])
+        
+        let commentsRef = Firestore.firestore().collection(Const.PostPath).document(postData!.id)
+        commentsRef.updateData(["comments": updateValue])
         
         // 投稿処理が完了したので先頭画面に戻る
         UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
