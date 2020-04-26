@@ -113,8 +113,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    
+    
     @objc func commentsButton(_ sender: UIButton, forEvent event: UIEvent){
-        
         // タップされたセルのインデックスを求める
         let touch = event.allTouches?.first
         let point = touch!.location(in: self.tableView)
@@ -123,8 +124,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         
-        
         self.performSegue(withIdentifier: "CommentPost", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // segueから遷移先のResultViewControllerを取得する
+        let commentPostViewController:CommentPostViewController = segue.destination as! CommentPostViewController
+        commentPostViewController.commentID = id as! String
     }
 
 }
