@@ -18,7 +18,15 @@ class CommentPostViewController: UIViewController {
     var postData:PostData?
     
     @IBAction func commentPost(_ sender: Any) {
+        if let CommentName = commentName.text, let Comment = commentField.text{
         
+        
+        if CommentName.isEmpty || Comment.isEmpty {
+            SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
+            return
+            }
+        }
+            
         var updateValue: FieldValue
         
         updateValue = FieldValue.arrayUnion(["\(commentName.text!):\(commentField.text!)"])

@@ -37,6 +37,15 @@ class PostViewController: UIViewController {
                 UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
                 return
             }
+            
+            if let Caption = self.textField.text {
+            
+            if Caption.isEmpty {
+                SVProgressHUD.showError(withStatus: "投稿内容を入力して下さい")
+                return
+                }
+            }
+            
             // FireStoreに投稿データを保存する
             let name = Auth.auth().currentUser?.displayName
             let postDic = [
