@@ -21,10 +21,8 @@ class CommentPostViewController: UIViewController {
         
         var updateValue: FieldValue
         
-        updateValue = FieldValue.arrayUnion([commentName.text,commentField.text])
+        updateValue = FieldValue.arrayUnion(["\(commentName.text!):\(commentField.text!)"])
         
-        let commentsnameRef = Firestore.firestore().collection(Const.PostPath).document(postData!.id)
-        commentsnameRef.updateData(["commentsName": updateValue])
         
         let commentsRef = Firestore.firestore().collection(Const.PostPath).document(postData!.id)
         commentsRef.updateData(["comments": updateValue])
